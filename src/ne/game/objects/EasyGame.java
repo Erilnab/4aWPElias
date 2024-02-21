@@ -1,8 +1,11 @@
 package ne.game.objects;
 import org.newdawn.slick.*;
+
+import java.util.ArrayList;
+
 public class EasyGame extends BasicGame {
 
-    private MeinUfo mUfo;
+    private ArrayList<MeinUfo> mUfoList;
     private Image background;
 
     public EasyGame() {
@@ -21,7 +24,10 @@ public class EasyGame extends BasicGame {
     @Override
     public void init(GameContainer container) throws SlickException {
         background = new Image("assets/pics/background.png");
-        mUfo = new MeinUfo(100,199, new Image("assets/pics/meinufo.png"));
+        mUfoList=new ArrayList<MeinUfo>();
+        for(int i=1; i<=1000; i++) {
+            mUfoList.add(new MeinUfo(100,199, new Image("assets/pics/meinufo.png")));
+        }
 
     }
 
@@ -32,14 +38,17 @@ public class EasyGame extends BasicGame {
         if (input.isKeyPressed(Input.KEY_ESCAPE)) {
             container.exit();
         }
-        mUfo.update(delta);
+        for (MeinUfo u :mUfoList)
+            u.update(delta);
+
     }
 
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException {
         background.draw();
-        mUfo.draw(g);
+        for(MeinUfo u:mUfoList){
+            u.draw(g);
+        }
 
     }
 }
-
