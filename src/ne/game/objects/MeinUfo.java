@@ -44,7 +44,7 @@ public class MeinUfo extends SpielObjekt{
         int rx=0;
         rx=r.nextInt(1900-this.getWith()+1-0)+this.getWith()/2+1900;
         //y=0 oben!!!
-        ry=r.nextInt(1060+1+this.getHeight())+this.getHeight();
+        ry=r.nextInt(1060-(this.getHeight()/2))-this.getHeight();
         this.setY(ry);
         this.setX(rx);
         setRandomspeed();

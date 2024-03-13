@@ -17,7 +17,7 @@ public abstract class SpielObjekt {
         this.y = y;
         this.image = image;
         this.with = image.getWidth();
-        this.height = image.getWidth();
+        this.height = image.getHeight();
     }
 
     public abstract void draw(Graphics g);

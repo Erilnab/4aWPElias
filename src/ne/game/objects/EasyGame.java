@@ -31,9 +31,9 @@ public class EasyGame extends BasicGame {
     @Override
     public void init(GameContainer container) throws SlickException {
         font = new AngelCodeFont("testdata/demo2.fnt","testdata/demo2_00.tga");
-        background = new Image("assets/pics/apfelshop.jpg");
+        background = new Image("assets/pics/nyc.png");
         mUfoList=new ArrayList<MeinUfo>();
-        for(int i=1; i<=10; i++) {
+        for(int i=1; i<=100; i++) {
             mUfoList.add(new MeinUfo(500,500, new Image("assets/pics/refurb-iphone-13-pro-max-graphite-2023.jpg")));
         }
         crusher = new Crusher(175,530,new Image("assets/pics/Air-New-Zealand-Boeing-747-400.png"),container.getInput());

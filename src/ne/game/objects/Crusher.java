@@ -39,6 +39,7 @@ public class Crusher extends SpielObjekt{
         if (input.isKeyDown(Input.KEY_S)){
             this.setY(this.getY() + Speed);
             if (this.getY() > 1060 - this.getHeight()/2) this.setY(1060 - this.getHeight()/2);
+            System.out.println(1060 - this.getHeight()/2);
             pressed = true;
         }
         shape.setCenterX(this.getX());
