@@ -31,14 +31,14 @@ public class Crusher extends SpielObjekt{
     @Override
     public void update(int delta) {
        boolean pressed = false;
-        if (input.isKeyDown(Input.KEY_A)) {
-            this.setX(this.getX() - Speed);
-            if (this.getX() < 0 + this.getWith()/2) this.setX(this.getWith()/2);
+        if (input.isKeyDown(Input.KEY_W)) {
+            this.setY(this.getY() - Speed);
+            if (this.getY() < 0 + this.getHeight()/2) this.setY(this.getHeight()/2);
             pressed = true;
         }
-        if (input.isKeyDown(Input.KEY_D)){
-            this.setX(this.getX() + Speed);
-            if (this.getX() > 1900 - this.getWith()/2) this.setX(1024 - this.getWith()/2);
+        if (input.isKeyDown(Input.KEY_S)){
+            this.setY(this.getY() + Speed);
+            if (this.getY() > 1060 - this.getHeight()/2) this.setY(1060 - this.getHeight()/2);
             pressed = true;
         }
         shape.setCenterX(this.getX());

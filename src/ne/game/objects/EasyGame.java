@@ -33,10 +33,10 @@ public class EasyGame extends BasicGame {
         font = new AngelCodeFont("testdata/demo2.fnt","testdata/demo2_00.tga");
         background = new Image("assets/pics/apfelshop.jpg");
         mUfoList=new ArrayList<MeinUfo>();
-        for(int i=1; i<=100; i++) {
-            mUfoList.add(new MeinUfo(100,199, new Image("assets/pics/refurb-iphone-13-pro-max-graphite-2023.jpg")));
+        for(int i=1; i<=10; i++) {
+            mUfoList.add(new MeinUfo(500,500, new Image("assets/pics/refurb-iphone-13-pro-max-graphite-2023.jpg")));
         }
-        crusher = new Crusher(950,530,new Image("assets/pics/Clipped_image_20240313_095649.png"),container.getInput());
+        crusher = new Crusher(175,530,new Image("assets/pics/Air-New-Zealand-Boeing-747-400.png"),container.getInput());
         music = new Music("testdata/testloop.ogg", true);
         sound = new Sound("assets/sounds/iphone_notification.wav");
         music.loop();
@@ -68,7 +68,7 @@ public class EasyGame extends BasicGame {
                 u.setRandomPosition();
                 hit ++;
             }
-             if (u.getY()> 1060) {
+             if (u.getX()< 0) {
                  miss++;
                  u.setRandomPosition();
              }
@@ -86,7 +86,7 @@ public class EasyGame extends BasicGame {
         }
         crusher.draw(g);
         font.drawString(80, 5, "Hit: "+hit, Color.black);
-        font.drawString(80, 25, "Miss: "+miss, Color.red);
+        font.drawString(80, 30, "Miss: "+miss, Color.red);
 
     }
 }
