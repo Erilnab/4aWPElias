@@ -2,16 +2,19 @@ package ne.game.objects;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
 
 public class MeinUfo extends SpielObjekt{
     private float acceleration=0.001f;
-    private float speed=1;
+    private float speed=1f;
+    private Rectangle shape;
     public MeinUfo(int x, int y, Image image) {
         super(x, y, image);
         setRandomPosition();
+        shape = new Rectangle(x,y,image.getWidth(),image.getHeight());
     }
 
     @Override
@@ -21,31 +24,33 @@ public class MeinUfo extends SpielObjekt{
 
     @Override
     public Shape getShape() {
-        return null;
+        return shape;
     }
 
     @Override
     public void update(int delta) {
         this.speed=(delta * this.acceleration + speed);
-        if(this.getY() > (768+this.getHeight())){
+        if(this.getY() > (1060+this.getHeight())){
             this.setRandomPosition();
         }
         this.setY(this.getY() + (int) this.speed);
+        shape.setCenterX(this.getX());
+        shape.setCenterY(this.getY());
 
     }
-    private void setRandomPosition(){
+    public void setRandomPosition(){
         Random r = new Random();
         int ry=0;
         int rx=0;
-        rx=r.nextInt(1024-this.getWith()+1-0)+this.getWith()/2;
+        rx=r.nextInt(1900-this.getWith()+1-0)+this.getWith()/2;
         //y=0 oben!!!
-        ry=r.nextInt(600+1+this.getHeight())+this.getHeight();
+        ry=r.nextInt(1060+1+this.getHeight())+this.getHeight();
         this.setY(-ry);
         this.setX(rx);
         setRandomspeed();
     }
     private void setRandomspeed(){
         Random r = new Random();
-        this.speed = r.nextInt(4-1)+1;
+        this.speed = r.nextInt(10-1)+1;
     }
 }
